@@ -16,7 +16,7 @@
 	 <DebugType>None</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.1.4" />
   </ItemGroup>
 
   <ItemGroup>

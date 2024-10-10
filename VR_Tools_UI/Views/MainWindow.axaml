@@ -6,7 +6,8 @@
         xmlns:views="clr-namespace:VR_Tools_UI.Views"
         x:Class="VR_Tools_UI.Views.MainWindow"
         Title="VR_Tools_UI"
-		Width="450" Height="450">
+		Width="450" Height="450"
+		CanResize="False">
 	<StackPanel>
 		<Border Margin="5" CornerRadius="10" Background="LightBlue">
 			<TextBlock Margin="5"
@@ -24,15 +25,17 @@
 			</TextBlock>
 		</Border>
 		</Grid>
-		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="240, 300" RowDefinitions="Auto, Auto, Auto, Auto">
-			<Label Grid.Row="0" Grid.Column="0">OVRServer_x64.exe &amp; OVRRedir.exe</Label>
-			<Button Grid.Row="0" Grid.Column="1" Click="Button_1">Set Priority (Realtime)</Button>
-			<Label Grid.Row="1" Grid.Column="0">OculusDash.exe</Label>
-			<Button Grid.Row="1" Grid.Column="1" Click="Button_2">Set Priority (High)</Button>
-			<Label Grid.Row="2" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="2" Grid.Column="1" Click="Button_3">Set Priority (Realtime)</Button>
+		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="240, 300" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
+			<Label Grid.Row="0" Grid.Column="0">OVRServer_x64.exe</Label>
+			<Button Grid.Row="0" Grid.Column="1" Click="Priority_Button_1">Set Priority (Realtime)</Button>
+			<Label Grid.Row="1" Grid.Column="0">OVRRedir.exe</Label>
+			<Button Grid.Row="1" Grid.Column="1" Click="Priority_Button_2">Set Priority (Realtime)</Button>
+			<Label Grid.Row="2" Grid.Column="0">OculusDash.exe</Label>
+			<Button Grid.Row="2" Grid.Column="1" Click="Priority_Button_3">Set Priority (High)</Button>
 			<Label Grid.Row="3" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="3" Grid.Column="1" Click="Button_4">Set Priority (High)</Button>
+			<Button Grid.Row="3" Grid.Column="1" Click="Priority_Button_4">Set Priority (Realtime)</Button>
+			<Label Grid.Row="4" Grid.Column="0">Beat Saber.exe</Label>
+			<Button Grid.Row="4" Grid.Column="1" Click="Priority_Button_5">Set Priority (High)</Button>
 		</Grid>
 		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="130" RowDefinitions="Auto">
 			<Border Grid.Row="0" Grid.Column="0" Margin="5" CornerRadius="10" Background="Salmon">

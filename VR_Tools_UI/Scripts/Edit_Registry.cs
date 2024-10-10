@@ -1,5 +1,6 @@
 ﻿#pragma warning disable CA1416 // Validate platform compatibility
 using Microsoft.Win32;
+using MsBox.Avalonia.Enums;
 using System;
 using System.Diagnostics;
 
@@ -12,6 +13,7 @@ namespace VR_Tools_UI.Scripts
             if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is null)
             {
                 Debug.WriteLine(@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?");
+                Message_Box.Message("Error", @"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", ButtonEnum.Ok);
             }
             else if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is not null)
             {
@@ -24,10 +26,12 @@ namespace VR_Tools_UI.Scripts
                             key.SetValue(@"AswDisabled", 1, RegistryValueKind.DWord);
 
                             Debug.WriteLine("Registry value created!");
+                            Message_Box.Message("Success", "Registry value created!", ButtonEnum.Ok);
                         }
                         else
                         {
                             Debug.WriteLine("Registry value already exists!");
+                            Message_Box.Message("Error", "Registry value already exists!", ButtonEnum.Ok);
                         }
                         break;
                     case "delete_value":
@@ -36,10 +40,12 @@ namespace VR_Tools_UI.Scripts
                             key.DeleteValue("AswDisabled");
 
                             Debug.WriteLine("Registry value deleted!");
+                            Message_Box.Message("Success", "Registry value deleted!", ButtonEnum.Ok);
                         }
                         else
                         {
                             Debug.WriteLine("Registry value already deleted!");
+                            Message_Box.Message("Error", "Registry value already deleted!", ButtonEnum.Ok);
                         }
                         break;
                 }
