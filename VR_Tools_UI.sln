@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VR_Tools_UI", "VR_Tools_UI\VR_Tools_UI.csproj", "{373B60C4-6BF9-4DF3-A4F2-51CDC268CAF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VR_Tools_UI.Desktop", "VR_Tools_UI.Desktop\VR_Tools_UI.Desktop.csproj", "{C3770B12-DBAC-463A-ADBF-E195480817CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{373B60C4-6BF9-4DF3-A4F2-51CDC268CAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373B60C4-6BF9-4DF3-A4F2-51CDC268CAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373B60C4-6BF9-4DF3-A4F2-51CDC268CAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373B60C4-6BF9-4DF3-A4F2-51CDC268CAF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3770B12-DBAC-463A-ADBF-E195480817CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3770B12-DBAC-463A-ADBF-E195480817CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3770B12-DBAC-463A-ADBF-E195480817CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3770B12-DBAC-463A-ADBF-E195480817CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A09F7850-2769-4D9F-AC8D-F6E2C6B83345}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:VR_Tools_UI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:VR_Tools_UI.Views"
+        x:Class="VR_Tools_UI.Views.MainWindow"
+        Title="VR_Tools_UI"
+		Width="450" Height="450">
+	<StackPanel>
+		<Border Margin="5" CornerRadius="10" Background="LightBlue">
+			<TextBlock Margin="5"
+			   FontSize="24"
+			   HorizontalAlignment="Center"
+			   Text="VR Tools UI by Majora8120">
+			</TextBlock>
+		</Border>
+		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="240" RowDefinitions="Auto">
+		<Border Grid.Row="0" Grid.Column="0" Margin="5" CornerRadius="10" Background="LightGreen">
+			<TextBlock Margin="5"
+			   FontSize="20"
+			   HorizontalAlignment="Left"
+			   Text="VR App Priority Changer">
+			</TextBlock>
+		</Border>
+		</Grid>
+		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="240, 300" RowDefinitions="Auto, Auto, Auto, Auto">
+			<Label Grid.Row="0" Grid.Column="0">OVRServer_x64.exe &amp; OVRRedir.exe</Label>
+			<Button Grid.Row="0" Grid.Column="1" Click="Button_1">Set Priority (Realtime)</Button>
+			<Label Grid.Row="1" Grid.Column="0">OculusDash.exe</Label>
+			<Button Grid.Row="1" Grid.Column="1" Click="Button_2">Set Priority (High)</Button>
+			<Label Grid.Row="2" Grid.Column="0">Beat Saber.exe</Label>
+			<Button Grid.Row="2" Grid.Column="1" Click="Button_3">Set Priority (Realtime)</Button>
+			<Label Grid.Row="3" Grid.Column="0">Beat Saber.exe</Label>
+			<Button Grid.Row="3" Grid.Column="1" Click="Button_4">Set Priority (High)</Button>
+		</Grid>
+		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="130" RowDefinitions="Auto">
+			<Border Grid.Row="0" Grid.Column="0" Margin="5" CornerRadius="10" Background="Salmon">
+				<TextBlock Margin="5"
+				   FontSize="20"
+				   HorizontalAlignment="Left"
+				   Text="Registry Edit">
+				</TextBlock>
+			</Border>
+		</Grid>
+		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="255, 66, 100" RowDefinitions="Auto">
+			<Label Grid.Row="0" Grid.Column="0">Oculus PC Asynchronous Spacewarp</Label>
+			<Button Grid.Row="0" Grid.Column="1" Click="ASW_Enable">Enable</Button>
+			<Button Grid.Row="0" Grid.Column="2" Click="ASW_Disable">Disable</Button>
+		</Grid>
+	</StackPanel>
+</Window>
