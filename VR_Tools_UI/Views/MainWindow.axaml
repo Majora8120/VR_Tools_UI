@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:VR_Tools_UI.Views"
         x:Class="VR_Tools_UI.Views.MainWindow"
+		Icon="\Assets\Icon.ico"
         Title="VR_Tools_UI"
-		Width="450" Height="450"
+		Width="550" Height="450"
 		CanResize="False">
 	<StackPanel TextElement.Foreground="#ffffffff">
 		<Border Margin="3" CornerRadius="6" Background="#ff698dd4">
@@ -16,7 +17,7 @@
 			   Text="VR Tools UI by Majora8120">
 			</TextBlock>
 		</Border>
-		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="240" RowDefinitions="Auto">
+		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="240, 210" RowDefinitions="Auto">
 		<Border Grid.Row="0" Grid.Column="0" Margin="3" CornerRadius="6" Background="#ff00ca9a">
 			<TextBlock Margin="5"
 			   FontSize="20"
@@ -27,15 +28,19 @@
 		</Grid>
 		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="255, 300" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
 			<Label Grid.Row="0" Grid.Column="0">OVRServer_x64.exe</Label>
-			<Button Grid.Row="0" Grid.Column="1" Click="Priority_Button_1">Set Priority (Realtime)</Button>
+			<Button Grid.Row="0" Grid.Column="1" Name="OVRServer_x64" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			
 			<Label Grid.Row="1" Grid.Column="0">OVRRedir.exe</Label>
-			<Button Grid.Row="1" Grid.Column="1" Click="Priority_Button_2">Set Priority (Realtime)</Button>
+			<Button Grid.Row="1" Grid.Column="1" Name="OVRRedir" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			
 			<Label Grid.Row="2" Grid.Column="0">OculusDash.exe</Label>
-			<Button Grid.Row="2" Grid.Column="1" Click="Priority_Button_3">Set Priority (High)</Button>
+			<Button Grid.Row="2" Grid.Column="1" Name="OculusDash" Click="Set_Priority_Button">Set Priority (High)</Button>
+			
 			<Label Grid.Row="3" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="3" Grid.Column="1" Click="Priority_Button_4">Set Priority (Realtime)</Button>
+			<Button Grid.Row="3" Grid.Column="1" Name="BS_Realtime" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			
 			<Label Grid.Row="4" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="4" Grid.Column="1" Click="Priority_Button_5">Set Priority (High)</Button>
+			<Button Grid.Row="4" Grid.Column="1" Name="BS_High" Click="Set_Priority_Button">Set Priority (High)</Button>
 		</Grid>
 		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="130" RowDefinitions="Auto">
 			<Border Grid.Row="0" Grid.Column="0" Margin="3" CornerRadius="6" Background="#b00b69">
@@ -50,6 +55,18 @@
 			<Label Grid.Row="0" Grid.Column="0">Oculus PC Asynchronous Spacewarp</Label>
 			<Button Grid.Row="0" Grid.Column="1" Click="ASW_Enable">Enable</Button>
 			<Button Grid.Row="0" Grid.Column="2" Click="ASW_Disable">Disable</Button>
+		</Grid>
+		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="80" RowDefinitions="Auto">
+			<Border Grid.Row="0" Grid.Column="0" Margin="3" CornerRadius="6" Background="DarkKhaki">
+				<TextBlock Margin="5"
+				   FontSize="20"
+				   HorizontalAlignment="Left"
+				   Text="Output">
+				</TextBlock>
+			</Border>
+		</Grid>
+		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="600" RowDefinitions="Auto">
+			<Label Grid.Column="1" TextElement.Foreground="White" Name="Output" Content=""></Label>
 		</Grid>
 	</StackPanel>
 </Window>

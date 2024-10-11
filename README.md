@@ -8,4 +8,3 @@ Some tools I made that I find useful for VR. **Requires running as adminisotrato
 4. The .exe file is in `\VR_Tools_UI\VR_Tools_UI.Desktop\bin\Release\net8.0\win-x64\publish`
 ## Credits
 - [Avalonia](https://github.com/AvaloniaUI/Avalonia) <br>
-- [MessageBox.Avalonia](https://github.com/AvaloniaCommunity/MessageBox.Avalonia) <br>

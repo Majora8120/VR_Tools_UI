@@ -1,4 +1,4 @@
-﻿using MsBox.Avalonia.Enums;
+﻿using Avalonia.Media;
 using System;
 using System.Diagnostics;
 
@@ -6,13 +6,15 @@ namespace VR_Tools_UI.Scripts;
 
 public static class Change_Priority
 {
-    public static void Set_Priority(string process_name, string executable_name, ProcessPriorityClass priority)
+    public static (string content, Avalonia.Media.IBrush color) Set_Priority(string process_name, string executable_name, ProcessPriorityClass priority)
     {
+        string message = "null";
+        Avalonia.Media.IBrush color = Brushes.Crimson;
+
         Process[] process = Process.GetProcessesByName(process_name);
         if (process.Length == 0)
         {
-            Debug.WriteLine($"{executable_name} is not running");
-            Message_Box.Message("Error", $"{executable_name} is not running", ButtonEnum.Ok);
+            (message, color) = ($"{executable_name} is not running", Brushes.Crimson);
         }
         else
         {
@@ -22,10 +24,10 @@ public static class Change_Priority
                 proc.PriorityClass = priority;
                 if (proc.PriorityClass == priority)
                 {
-                    Debug.WriteLine($"{executable_name} Priority Changed To " + Convert.ToString(priority) + "!");
-                    Message_Box.Message("Success", $"{executable_name} Priority Changed To " + Convert.ToString(priority) + "!", ButtonEnum.Ok);
+                    (message, color) = ($"{executable_name} Priority Changed To " + Convert.ToString(priority) + "!", Brushes.LightGreen);
                 }
             }
         }
+        return (message, color);
     }
 }

@@ -1,19 +1,20 @@
 ﻿#pragma warning disable CA1416 // Validate platform compatibility
+using Avalonia.Media;
 using Microsoft.Win32;
-using MsBox.Avalonia.Enums;
 using System;
-using System.Diagnostics;
 
 namespace VR_Tools_UI.Scripts
 {
     public static class Change_Registry
     {
-        public static void Edit_Registry(string registry_edit_option)
+        public static (string message, Avalonia.Media.IBrush color) Edit_Registry(string registry_edit_option)
         {
+            string message = "null";
+            Avalonia.Media.IBrush color = Brushes.Crimson;
+
             if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is null)
             {
-                Debug.WriteLine(@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?");
-                Message_Box.Message("Error", @"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", ButtonEnum.Ok);
+                (message, color) = (@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", Brushes.Crimson);
             }
             else if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is not null)
             {
@@ -25,13 +26,11 @@ namespace VR_Tools_UI.Scripts
                         {
                             key.SetValue(@"AswDisabled", 1, RegistryValueKind.DWord);
 
-                            Debug.WriteLine("Registry value created!");
-                            Message_Box.Message("Success", "Registry value created!", ButtonEnum.Ok);
+                            (message, color) = ("Registry value created!", Brushes.LightGreen);
                         }
                         else
                         {
-                            Debug.WriteLine("Registry value already exists!");
-                            Message_Box.Message("Error", "Registry value already exists!", ButtonEnum.Ok);
+                            (message, color) = ("Registry value already exists!", Brushes.Crimson);
                         }
                         break;
                     case "delete_value":
@@ -39,18 +38,17 @@ namespace VR_Tools_UI.Scripts
                         {
                             key.DeleteValue("AswDisabled");
 
-                            Debug.WriteLine("Registry value deleted!");
-                            Message_Box.Message("Success", "Registry value deleted!", ButtonEnum.Ok);
+                            (message, color) = ("Registry value deleted!", Brushes.LightGreen);
                         }
                         else
                         {
-                            Debug.WriteLine("Registry value already deleted!");
-                            Message_Box.Message("Error", "Registry value already deleted!", ButtonEnum.Ok);
+                            (message, color) = ("Registry value already deleted!", Brushes.Crimson);
                         }
                         break;
                 }
                 key.Close();
             }
+            return (message, color);
         }
     }
 }

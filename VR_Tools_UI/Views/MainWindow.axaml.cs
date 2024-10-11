@@ -11,32 +11,53 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-    public void Priority_Button_1(object source, RoutedEventArgs args)
+    public void Set_Priority_Button(object sender, RoutedEventArgs args)
     {
-        Change_Priority.Set_Priority("OVRServer_x64", "OVRServer_x64.exe", ProcessPriorityClass.RealTime);
-    }
-    public void Priority_Button_2(object source, RoutedEventArgs args)
-    {
-        Change_Priority.Set_Priority("OVRRedir", "OVRRedir.exe", ProcessPriorityClass.RealTime);
-    }
-    public void Priority_Button_3(object source, RoutedEventArgs args)
-    {
-        Change_Priority.Set_Priority("OculusDash", "OculusDash.exe", ProcessPriorityClass.High);
-    }
-    public void Priority_Button_4(object source, RoutedEventArgs args)
-    {
-        Change_Priority.Set_Priority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.RealTime);
-    }
-    public void Priority_Button_5(object source, RoutedEventArgs args)
-    {
-        Change_Priority.Set_Priority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.High);
+        var source = args.Source as Control;
+        Debug.WriteLine(source!.Name);
+
+        string content;
+        Avalonia.Media.IBrush color;
+
+        switch (source.Name)
+        {
+            case "OVRServer_x64":
+                (content, color) = Change_Priority.Set_Priority("OVRServer_x64", "OVRServer_x64.exe", ProcessPriorityClass.RealTime);
+                Output.Content = content;
+                Output.Foreground = color;
+                break;
+            case "OVRRedir":
+                (content, color) = Change_Priority.Set_Priority("OVRRedir", "OVRRedir.exe", ProcessPriorityClass.RealTime);
+                Output.Content = content;
+                Output.Foreground = color;
+                break;
+            case "OculusDash":
+                (content, color) = Change_Priority.Set_Priority("OculusDash", "OculusDash.exe", ProcessPriorityClass.High);
+                Output.Content = content;
+                Output.Foreground = color;
+                break;
+            case "BS_Realtime":
+                (content, color) = Change_Priority.Set_Priority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.RealTime);
+                Output.Content = content;
+                Output.Foreground = color;
+                break;
+            case "BS_High":
+                (content, color) = Change_Priority.Set_Priority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.High);
+                Output.Content = content;
+                Output.Foreground = color;
+                break;
+        }
     }
     public void ASW_Enable(object source, RoutedEventArgs args)
     {
-        Change_Registry.Edit_Registry("delete_value");
+        var (content, color) = Change_Registry.Edit_Registry("delete_value");
+        Output.Content = content;
+        Output.Foreground = color;
     }
     public void ASW_Disable(object source, RoutedEventArgs args)
     {
-        Change_Registry.Edit_Registry("create_value");
+        var (content, color) = Change_Registry.Edit_Registry("create_value");
+        Output.Content = content;
+        Output.Foreground = color;
     }
 }
