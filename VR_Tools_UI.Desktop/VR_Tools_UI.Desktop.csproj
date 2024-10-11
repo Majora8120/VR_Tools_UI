@@ -10,11 +10,15 @@
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
 	 <DebugSymbols>False</DebugSymbols>
 	 <DebugType>None</DebugType>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="11.1.4" />
   </ItemGroup>
