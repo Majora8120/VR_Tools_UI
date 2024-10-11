@@ -6,5 +6,3 @@ Some tools I made that I find useful for VR. **Requires running as adminisotrato
 2. Download the source code
 3. Open powershell in the `VR_Tools_UI` folder and run `dotnet publish .\VR_Tools_UI.sln`
 4. The .exe file is in `\VR_Tools_UI\VR_Tools_UI.Desktop\bin\Release\net8.0\win-x64\publish`
-## Credits
-- [Avalonia](https://github.com/AvaloniaUI/Avalonia) <br>
