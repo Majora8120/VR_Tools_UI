@@ -24,7 +24,7 @@ public static class Change_Priority
                 proc.PriorityClass = priority;
                 if (proc.PriorityClass == priority)
                 {
-                    (message, color) = ($"{executable_name} Priority Changed To " + Convert.ToString(priority) + "!", Brushes.LightGreen);
+                    (message, color) = ($"{executable_name} priority changed to {Convert.ToString(priority)}!", Brushes.LightGreen);
                 }
             }
         }
