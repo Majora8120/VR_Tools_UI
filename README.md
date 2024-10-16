@@ -1,6 +1,6 @@
 # VR Tools UI
 [VR Tools](https://github.com/Majora8120/VR_Tools) now with a UI made with [Avalonia](https://avaloniaui.net/)!
-Some tools I made that I find useful for VR. **Requires running as adminisotrator to work!**
+Some tools I made that I find useful for VR. **Requires running as administrator to work!**
 ## Building
 1. Download the latest [.NET SDK](https://dotnet.microsoft.com/en-us/download)
 2. Download the source code
