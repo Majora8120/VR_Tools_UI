@@ -28,19 +28,19 @@
 		</Grid>
 		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="255, 300" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
 			<Label Grid.Row="0" Grid.Column="0">OVRServer_x64.exe</Label>
-			<Button Grid.Row="0" Grid.Column="1" Name="OVRServer_x64" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			<Button Grid.Row="0" Grid.Column="1" Name="OVRServer_x64" Click="SetPriorityButton">Set Priority (Realtime)</Button>
 			
 			<Label Grid.Row="1" Grid.Column="0">OVRRedir.exe</Label>
-			<Button Grid.Row="1" Grid.Column="1" Name="OVRRedir" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			<Button Grid.Row="1" Grid.Column="1" Name="OVRRedir" Click="SetPriorityButton">Set Priority (Realtime)</Button>
 			
 			<Label Grid.Row="2" Grid.Column="0">OculusDash.exe</Label>
-			<Button Grid.Row="2" Grid.Column="1" Name="OculusDash" Click="Set_Priority_Button">Set Priority (High)</Button>
+			<Button Grid.Row="2" Grid.Column="1" Name="OculusDash" Click="SetPriorityButton">Set Priority (High)</Button>
 			
 			<Label Grid.Row="3" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="3" Grid.Column="1" Name="BS_Realtime" Click="Set_Priority_Button">Set Priority (Realtime)</Button>
+			<Button Grid.Row="3" Grid.Column="1" Name="BS_Realtime" Click="SetPriorityButton">Set Priority (Realtime)</Button>
 			
 			<Label Grid.Row="4" Grid.Column="0">Beat Saber.exe</Label>
-			<Button Grid.Row="4" Grid.Column="1" Name="BS_High" Click="Set_Priority_Button">Set Priority (High)</Button>
+			<Button Grid.Row="4" Grid.Column="1" Name="BS_High" Click="SetPriorityButton">Set Priority (High)</Button>
 		</Grid>
 		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="130" RowDefinitions="Auto">
 			<Border Grid.Row="0" Grid.Column="0" Margin="3" CornerRadius="6" Background="#b00b69">
@@ -53,8 +53,8 @@
 		</Grid>
 		<Grid ShowGridLines="False" Margin="5" ColumnDefinitions="255, 66, 100" RowDefinitions="Auto">
 			<Label Grid.Row="0" Grid.Column="0">Oculus PC Asynchronous Spacewarp</Label>
-			<Button Grid.Row="0" Grid.Column="1" Click="ASW_Enable">Enable</Button>
-			<Button Grid.Row="0" Grid.Column="2" Click="ASW_Disable">Disable</Button>
+			<Button Grid.Row="0" Grid.Column="1" Click="ASWEnable">Enable</Button>
+			<Button Grid.Row="0" Grid.Column="2" Click="ASWDisable">Disable</Button>
 		</Grid>
 		<Grid ShowGridLines="False" Margin="0" ColumnDefinitions="80" RowDefinitions="Auto">
 			<Border Grid.Row="0" Grid.Column="0" Margin="3" CornerRadius="6" Background="DarkKhaki">

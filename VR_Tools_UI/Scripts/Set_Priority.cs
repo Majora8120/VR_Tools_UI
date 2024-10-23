@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace VR_Tools_UI.Scripts;
 
-public static class Change_Priority
+public static class ChangePriority
 {
-    public static (string content, Avalonia.Media.IBrush color) Set_Priority(string process_name, string executable_name, ProcessPriorityClass priority)
+    public static (string content, Avalonia.Media.IBrush color) SetPriority(string process_name, string executable_name, ProcessPriorityClass priority)
     {
         string message = "null";
         Avalonia.Media.IBrush color = Brushes.Crimson;
@@ -15,6 +15,7 @@ public static class Change_Priority
         if (process.Length == 0)
         {
             (message, color) = ($"{executable_name} is not running", Brushes.Crimson);
+            Debug.WriteLine(message);
         }
         else
         {
@@ -25,6 +26,7 @@ public static class Change_Priority
                 if (proc.PriorityClass == priority)
                 {
                     (message, color) = ($"{executable_name} priority changed to {Convert.ToString(priority)}!", Brushes.LightGreen);
+                    Debug.WriteLine(message);
                 }
             }
         }
