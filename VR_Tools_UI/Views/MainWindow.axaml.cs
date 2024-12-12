@@ -1,7 +1,10 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
-using VR_Tools_UI.Scripts;
+using VR_Tools_UI.Functions;
+using VR_Tools_UI.ViewModels;
 
 namespace VR_Tools_UI.Views;
 
