@@ -1,20 +1,19 @@
-﻿using Avalonia.Media;
-using System;
+﻿using System;
 using System.Diagnostics;
 
 namespace VR_Tools_UI.Functions;
 
 public static class Priority
 {
-    public static (string content, Avalonia.Media.IBrush color) SetPriority(string processName, string executableName, ProcessPriorityClass priority)
+    public static (string message, string type) SetPriority(string processName, string executableName, ProcessPriorityClass priority)
     {
         string message = "null";
-        Avalonia.Media.IBrush color = Brushes.Crimson;
+        string type = "ERROR";
 
         Process[] process = Process.GetProcessesByName(processName);
         if (process.Length == 0)
         {
-            (message, color) = ($"{executableName} is not running", Brushes.Crimson);
+            (message, type) = ($"{executableName} is not running", "ERROR");
             Debug.WriteLine(message);
         }
         else
@@ -25,11 +24,11 @@ public static class Priority
                 proc.PriorityClass = priority;
                 if (proc.PriorityClass == priority)
                 {
-                    (message, color) = ($"{executableName} priority changed to {Convert.ToString(priority)}!", Brushes.LightGreen);
+                    (message, type) = ($"{executableName} priority changed to {Convert.ToString(priority)}", "INFO");
                     Debug.WriteLine(message);
                 }
             }
         }
-        return (message, color);
+        return (message, type);
     }
 }

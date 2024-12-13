@@ -9,6 +9,7 @@
 			<FluentTheme.Palettes>
 				<ColorPaletteResources x:Key="Dark" Accent="DarkGreen" RegionColor="#ff272c30" ErrorText="Red" />
 			</FluentTheme.Palettes>
+			<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
 		</FluentTheme>
     </Application.Styles>
 </Application>
