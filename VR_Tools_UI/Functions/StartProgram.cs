@@ -12,8 +12,8 @@ public static class StartProgram
 
         if (File.Exists(path) == false)
         {
-            (message, type) = ($"{path} doesn't exist", "ERROR");
-            Debug.WriteLine($"{path} doesn't exist");
+            (message, type) = ($"{name} doesn't exist in {path}", "ERROR");
+            Debug.WriteLine($"{name} doesn't exist in {path}");
             return (message, type);
         }
 

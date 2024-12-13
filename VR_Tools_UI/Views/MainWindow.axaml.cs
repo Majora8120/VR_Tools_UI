@@ -51,15 +51,33 @@ public partial class MainWindow : Window
                 break;
         }
     }
-    public void ASWEnable(object source, RoutedEventArgs args)
+    public void ASWEnable(object sender, RoutedEventArgs args)
     {
         var (message, type) = Registry.EditRegistry(false);
         Log.Insert(0, new LogMessage(message, type));
     }
-    public void ASWDisable(object source, RoutedEventArgs args)
+    public void ASWDisable(object sender, RoutedEventArgs args)
     {
         var (message, type) = Registry.EditRegistry(true);
         Log.Insert(0, new LogMessage(message, type));
+    }
+    public void OpenProgram(object sender, RoutedEventArgs args)
+    {
+        var source = args.Source as Control;
+
+        string message, type;
+
+        switch (source!.Name)
+        {
+            case "OpenOculus":
+                (message, type) = StartProgram.Start("OculusClient", @"C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe");
+                Log.Insert(0, new LogMessage(message, type));
+                break;
+            case "OpenOculusDebug":
+                (message, type) = StartProgram.Start("OculusDebugTool", @"C:\Program Files\Oculus\Support\oculus-diagnostics\OculusDebugTool.exe");
+                Log.Insert(0, new LogMessage(message, type));
+                break;
+        }
     }
     public async void AboutWindow(object source, RoutedEventArgs args)
     {

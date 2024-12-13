@@ -19,42 +19,56 @@
 				<MenuItem Header="About" Name="About" Click="AboutWindow"/>
 			</Menu>
 		</DockPanel>
+		<Grid ShowGridLines="false" Margin="0, 0, 0, 0" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto">
+			<Grid Grid.Row="0" ShowGridLines="false" Margin="0, 0, 0, 0" ColumnDefinitions="140, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
 
-		<Grid ShowGridLines="false" Margin="0, 0, 0, 0" ColumnDefinitions="220, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
-			
-			<!--VR App Priority Changer-->
-			<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#ff00ca9a">
-				<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Priority"></TextBlock>
-			</Border>
-			
-			<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRServer_x64.exe</Label>
-			<Button Grid.Row="1" Grid.Column="1" FontSize="12" Name="OVRServer_x64" Click="SetPriorityButton">Set Priority (Realtime)</Button>
-			
-			<Label Grid.Row="2" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRRedir.exe</Label>
-			<Button Grid.Row="2" Grid.Column="1" FontSize="12" Name="OVRRedir" Click="SetPriorityButton">Set Priority (Realtime)</Button>
-			
-			<Label Grid.Row="3" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OculusDash.exe</Label>
-			<Button Grid.Row="3" Grid.Column="1" FontSize="12" Name="OculusDash" Click="SetPriorityButton">Set Priority (High)</Button>
-			
-			<Label Grid.Row="4" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
-			<Button Grid.Row="4" Grid.Column="1" FontSize="12" Name="BS_Realtime" Click="SetPriorityButton">Set Priority (Realtime)</Button>
-			
-			<Label Grid.Row="5" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
-			<Button Grid.Row="5" Grid.Column="1" FontSize="12" Name="BS_High" Click="SetPriorityButton">Set Priority (High)</Button>
-		</Grid>
-	
-		<!--Registry Edit-->
-		<Grid ShowGridLines="false" Margin="0, 5, 0, 0" ColumnDefinitions="220, Auto" RowDefinitions="Auto, Auto,">
-			<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#b00b69">
-				<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Registry"></TextBlock>
-			</Border>
+				<!--VR App Priority Changer-->
+				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#ff00ca9a">
+					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Priority"></TextBlock>
+				</Border>
 
-			<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Oculus PC Asynchronous Spacewarp</Label>
+				<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRServer_x64.exe</Label>
+				<Button Grid.Row="1" Grid.Column="1" FontSize="12" Name="OVRServer_x64" Click="SetPriorityButton">Set Priority (Realtime)</Button>
 
-			<Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto">
-				<Button Grid.Row="0" Grid.Column="0" FontSize="12" Click="ASWEnable">Enable</Button>
-				<Button Grid.Row="0" Grid.Column="1" FontSize="12" Click="ASWDisable">Disable</Button>
+				<Label Grid.Row="2" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRRedir.exe</Label>
+				<Button Grid.Row="2" Grid.Column="1" FontSize="12" Name="OVRRedir" Click="SetPriorityButton">Set Priority (Realtime)</Button>
+
+				<Label Grid.Row="3" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OculusDash.exe</Label>
+				<Button Grid.Row="3" Grid.Column="1" FontSize="12" Name="OculusDash" Click="SetPriorityButton">Set Priority (High)</Button>
+
+				<Label Grid.Row="4" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
+				<Button Grid.Row="4" Grid.Column="1" FontSize="12" Name="BS_Realtime" Click="SetPriorityButton">Set Priority (Realtime)</Button>
+
+				<Label Grid.Row="5" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
+				<Button Grid.Row="5" Grid.Column="1" FontSize="12" Name="BS_High" Click="SetPriorityButton">Set Priority (High)</Button>
 			</Grid>
+
+			<!--Registry Edit-->
+			<Grid Grid.Row="1" ShowGridLines="false" Margin="0, 5, 0, 0" ColumnDefinitions="140, Auto" RowDefinitions="Auto, Auto">
+				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#b00b69">
+					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Registry"></TextBlock>
+				</Border>
+
+				<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Oculus PC ASW</Label>
+
+				<Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto">
+					<Button Grid.Row="0" Grid.Column="0" FontSize="12" Click="ASWEnable">Enable</Button>
+					<Button Grid.Row="0" Grid.Column="1" FontSize="12" Click="ASWDisable">Disable</Button>
+				</Grid>
+			</Grid>
+			
+			<!--Open Programs-->
+			<Grid Grid.Row="0" Grid.Column="1" ShowGridLines="false" Margin="5, 0, 0, 0" ColumnDefinitions="Auto" RowDefinitions="Auto, Auto, Auto, Auto">
+				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="BlueViolet">
+					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Programs"></TextBlock>
+				</Border>
+
+				<Button Grid.Row="1" FontSize="12" Name="OpenOculus" Click="OpenProgram">Open Oculus Link</Button>
+				<Button Grid.Row="2" FontSize="12" Name="OpenOculusDebug" Click="OpenProgram">Open Oculus Debug Tool</Button>
+				<Button Grid.Row="3" FontSize="12" Name="OpenBSManager" Click="OpenProgram">Open BSManager</Button>
+				
+			</Grid>
+			
 		</Grid>
 
 		<!--Log-->
