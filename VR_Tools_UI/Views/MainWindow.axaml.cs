@@ -9,7 +9,6 @@ using MsBox.Avalonia.Models;
 using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace VR_Tools_UI.Views;
 
@@ -137,16 +136,5 @@ public partial class MainWindow : Window
                 }
             });
         await box.ShowAsync();
-    }
-}
-public class LogMessage
-{
-    public string Message { get; set; }
-    public string Type { get; set; }
-
-    public LogMessage(string message, string type)
-    {
-        Message = message;
-        Type = type;
     }
 }

@@ -16,7 +16,7 @@ public static class Dash
     private const string DashBackup = @"C:\Program Files\Oculus\Support\oculus-dash\dash\bin\OculusDash.exe.bak";
     private const string KillerBackup = @"C:\Program Files\Oculus\Support\oculus-dash\dash\bin\OculusDash.exe.killer";
 
-    public static async Task<VR_Tools_UI.Views.LogMessage> SwapToSteamVR()
+    public static async Task<LogMessage> SwapToSteamVR()
     {
         string message = "null";
         string type = "ERROR";
@@ -26,20 +26,20 @@ public static class Dash
         {
             (message, type) = ("Close OculusDash and SteamVR!!!", "ERROR");
             Debug.WriteLine(message);
-            return new VR_Tools_UI.Views.LogMessage(message, type);
+            return new LogMessage(message, type);
         }
 
         if (currentDash == "SteamVR")
         {
             (message, type) = ("Oculus Killer already installed", "ERROR");
             Debug.WriteLine(message);
-            return new VR_Tools_UI.Views.LogMessage(message, type);
+            return new LogMessage(message, type);
         }
         if (currentDash == null)
         {
             (message, type) = ("GetCurrentDash returned null", "ERROR");
             Debug.WriteLine(message);
-            return new VR_Tools_UI.Views.LogMessage(message, type);
+            return new LogMessage(message, type);
         }
         File.Move(FullFilePath, DashBackup);
 
@@ -47,7 +47,7 @@ public static class Dash
         {
             File.Move(KillerBackup, FullFilePath);
             (message, type) = ("Oculus Killer installed", "INFO");
-            return new VR_Tools_UI.Views.LogMessage(message, type);
+            return new LogMessage(message, type);
         }
         else
         {
@@ -56,10 +56,10 @@ public static class Dash
             {
                 await SaveFileStream(fileStream);
                 (message, type) = ("Oculus Killer installed", "INFO");
-                return new VR_Tools_UI.Views.LogMessage(message, type);
+                return new LogMessage(message, type);
             }
         }
-        return new VR_Tools_UI.Views.LogMessage(message, type);
+        return new LogMessage(message, type);
     }
     public static (string message, string type) SwapToOculusDash()
     {
