@@ -130,14 +130,14 @@ public static class Dash
         Process[] process = Process.GetProcessesByName("OculusDash");
         if (process.Length != 0)
         {
-            return false;
+            return true;
         }
         process = Process.GetProcessesByName("vrserver");
         if (process.Length != 0)
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
     private static async Task<Stream> GetFileStream(string url)
     {
