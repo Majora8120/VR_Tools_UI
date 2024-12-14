@@ -1,6 +1,5 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using MsBox.Avalonia.Enums;
 using MsBox.Avalonia;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -10,6 +9,7 @@ using MsBox.Avalonia.Models;
 using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace VR_Tools_UI.Views;
 
@@ -70,11 +70,34 @@ public partial class MainWindow : Window
         switch (source!.Name)
         {
             case "OpenOculus":
-                (message, type) = StartProgram.Start("OculusClient", @"C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe");
+                (message, type) = StartProcess.Program("OculusClient", @"C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe");
                 Log.Insert(0, new LogMessage(message, type));
                 break;
             case "OpenOculusDebug":
-                (message, type) = StartProgram.Start("OculusDebugTool", @"C:\Program Files\Oculus\Support\oculus-diagnostics\OculusDebugTool.exe");
+                (message, type) = StartProcess.Program("OculusDebugTool", @"C:\Program Files\Oculus\Support\oculus-diagnostics\OculusDebugTool.exe");
+                Log.Insert(0, new LogMessage(message, type));
+                break;
+            case "OpenOculusFolder":
+                (message, type) = StartProcess.Explorer(@"C:\Program Files\Oculus\Support");
+                Log.Insert(0, new LogMessage(message, type));
+                break;
+        }
+    }
+    public async void SwitchDash(object sender, RoutedEventArgs args)
+    {
+        var source = args.Source as Control;
+
+        LogMessage logMessage;
+        string message, type;
+
+        switch (source!.Name)
+        {
+            case "DashSteamVR":
+                logMessage = await Dash.SwapToSteamVR();
+                Log.Insert(0, logMessage);
+                break;
+            case "DashOculus":
+                (message, type) = Dash.SwapToOculusDash();
                 Log.Insert(0, new LogMessage(message, type));
                 break;
         }
@@ -102,7 +125,6 @@ public partial class MainWindow : Window
                     Text = "VR Tools GitHub",
                     Action = new Action(() =>
                     {
-                        var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                         var url = "https://github.com/Majora8120/VR_Tools_UI";
                         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                         {

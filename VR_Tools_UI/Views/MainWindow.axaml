@@ -7,10 +7,10 @@
         x:Class="VR_Tools_UI.Views.MainWindow"
 		Icon="\Assets\Icon.ico"
         Title="VR Tools"
-		Width="550" Height="450"
+		Width="650" Height="550"
 		CanResize="False">
 	<StackPanel TextElement.Foreground="#ffffffff">
-		<DockPanel DockPanel.Dock="Top">
+		<DockPanel DockPanel.Dock="Top" Background="#242323">
 			<Border Margin="0, 0, 0, 0" CornerRadius="0" Background="#ff698dd4">
 				<TextBlock Margin="5" FontSize="18" HorizontalAlignment="Center" Text="VR Tools by Majora8120"></TextBlock>
 			</Border>
@@ -19,75 +19,60 @@
 				<MenuItem Header="About" Name="About" Click="AboutWindow"/>
 			</Menu>
 		</DockPanel>
-		<Grid ShowGridLines="false" Margin="0, 0, 0, 0" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto">
-			<Grid Grid.Row="0" ShowGridLines="false" Margin="0, 0, 0, 0" ColumnDefinitions="140, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
 
-				<!--VR App Priority Changer-->
-				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#ff00ca9a">
-					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Priority"></TextBlock>
-				</Border>
+		<!--Oculus | Old color #ff00ca9a-->
+		<Border Width="650" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 0" CornerRadius="0" Background="#303030">
+			<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Center" Text="Oculus"></TextBlock>
+		</Border>
+		<Border BorderBrush="White" BorderThickness="1">
+		<WrapPanel HorizontalAlignment="Center">
+			<StackPanel Margin="5, 5, 5, 5" Background="#ff272c30">
+				<TextBlock  Margin="5" FontSize="14" HorizontalAlignment="Center">Priority</TextBlock>
+				<Button FontSize="12" Background="#525252" Name="OVRServer_x64" Click="SetPriorityButton" HorizontalAlignment="Center">OVRServer (Realtime)</Button>
+				<Button FontSize="12" Background="#525252" Name="OVRRedir" Click="SetPriorityButton" HorizontalAlignment="Center">OVRRedir (Realtime)</Button>
+				<Button FontSize="12" Background="#525252" Name="OculusDash" Click="SetPriorityButton" HorizontalAlignment="Center">Oculus Dash (High)</Button>
+			</StackPanel>
 
-				<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRServer_x64.exe</Label>
-				<Button Grid.Row="1" Grid.Column="1" FontSize="12" Name="OVRServer_x64" Click="SetPriorityButton">Set Priority (Realtime)</Button>
+			<StackPanel Margin="5, 5, 5, 5">
+				<TextBlock Margin="5" FontSize="14" HorizontalAlignment="Center">Oculus PC ASW</TextBlock>
+				<Button FontSize="12" Background="#525252" Click="ASWEnable" HorizontalAlignment="Center">Enable ASW</Button>
+				<Button FontSize="12" Background="#525252" Click="ASWDisable" HorizontalAlignment="Center">Disable ASW</Button>
+			</StackPanel>
 
-				<Label Grid.Row="2" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OVRRedir.exe</Label>
-				<Button Grid.Row="2" Grid.Column="1" FontSize="12" Name="OVRRedir" Click="SetPriorityButton">Set Priority (Realtime)</Button>
+			<StackPanel Margin="5, 5, 5, 5">
+				<TextBlock Margin="5" FontSize="14" HorizontalAlignment="Center">Dash</TextBlock>
+				<Button FontSize="12" Background="#525252" Name="DashOculus" Click="SwitchDash" HorizontalAlignment="Center">Oculus Dash</Button>
+				<Button FontSize="12" Background="#525252" Name="DashSteamVR" Click="SwitchDash" HorizontalAlignment="Center">SteamVR (Oculus Killer)</Button>
+			</StackPanel>
 
-				<Label Grid.Row="3" Grid.Column="0" FontSize="12" VerticalAlignment="Center">OculusDash.exe</Label>
-				<Button Grid.Row="3" Grid.Column="1" FontSize="12" Name="OculusDash" Click="SetPriorityButton">Set Priority (High)</Button>
-
-				<Label Grid.Row="4" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
-				<Button Grid.Row="4" Grid.Column="1" FontSize="12" Name="BS_Realtime" Click="SetPriorityButton">Set Priority (Realtime)</Button>
-
-				<Label Grid.Row="5" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Beat Saber.exe</Label>
-				<Button Grid.Row="5" Grid.Column="1" FontSize="12" Name="BS_High" Click="SetPriorityButton">Set Priority (High)</Button>
-			</Grid>
-
-			<!--Registry Edit-->
-			<Grid Grid.Row="1" ShowGridLines="false" Margin="0, 5, 0, 0" ColumnDefinitions="140, Auto" RowDefinitions="Auto, Auto">
-				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="#b00b69">
-					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Registry"></TextBlock>
-				</Border>
-
-				<Label Grid.Row="1" Grid.Column="0" FontSize="12" VerticalAlignment="Center">Oculus PC ASW</Label>
-
-				<Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto">
-					<Button Grid.Row="0" Grid.Column="0" FontSize="12" Click="ASWEnable">Enable</Button>
-					<Button Grid.Row="0" Grid.Column="1" FontSize="12" Click="ASWDisable">Disable</Button>
-				</Grid>
-			</Grid>
-			
-			<!--Open Programs-->
-			<Grid Grid.Row="0" Grid.Column="1" ShowGridLines="false" Margin="5, 0, 0, 0" ColumnDefinitions="Auto" RowDefinitions="Auto, Auto, Auto, Auto">
-				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 5" CornerRadius="0" Background="BlueViolet">
-					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Programs"></TextBlock>
-				</Border>
-
-				<Button Grid.Row="1" FontSize="12" Name="OpenOculus" Click="OpenProgram">Open Oculus Link</Button>
-				<Button Grid.Row="2" FontSize="12" Name="OpenOculusDebug" Click="OpenProgram">Open Oculus Debug Tool</Button>
-				<Button Grid.Row="3" FontSize="12" Name="OpenBSManager" Click="OpenProgram">Open BSManager</Button>
-				
-			</Grid>
-			
-		</Grid>
+			<StackPanel Margin="5, 5, 5, 5">
+				<TextBlock Margin="5" FontSize="14" HorizontalAlignment="Center">Other</TextBlock>
+				<Button FontSize="12" Background="#525252" Name="OpenOculus" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Link</Button>
+				<Button FontSize="12" Background="#525252" Name="OpenOculusDebug" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Debug Tool</Button>
+				<Button FontSize="12" Background="#525252" Name="OpenOculusFolder" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Folder</Button>
+			</StackPanel>
+		</WrapPanel>
+		</Border>
 
 		<!--Log-->
-		<Grid ShowGridLines="false" Margin="0, 5, 0, 0" ColumnDefinitions="Auto" RowDefinitions="Auto, Auto">
-			<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0" CornerRadius="0" Background="DarkKhaki">
-				<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Log"></TextBlock>
-			</Border>
-
-			<DataGrid Grid.Row="1" Margin="0" x:Name="DataGrid"
-          AutoGenerateColumns="False" IsReadOnly="True"
-          GridLinesVisibility="All" HeadersVisibility="None"
-          BorderThickness="0" BorderBrush="Gray"
-		  Height="130" RowHeight="30" Width="550">
-				<DataGrid.Columns>
-					<DataGridTextColumn Width="65" Binding="{Binding Type}" FontSize="12"/>
-					<DataGridTextColumn MinWidth="485" Binding="{Binding Message}" FontSize="12"/>
-				</DataGrid.Columns>
-			</DataGrid>
-		</Grid>
+		<DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Margin="0, 192, 0, 0">
+			<StackPanel>
+				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0" CornerRadius="0" Background="DarkKhaki">
+					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Log"></TextBlock>
+				</Border>
+				
+				<DataGrid x:Name="DataGrid"
+				AutoGenerateColumns="False" IsReadOnly="True"
+				GridLinesVisibility="All" HeadersVisibility="None"
+				BorderThickness="1" BorderBrush="Gray"
+				Height="140" RowHeight="30" Width="650">
+					<DataGrid.Columns>
+						<DataGridTextColumn Width="65" Binding="{Binding Type}" FontSize="12"/>
+						<DataGridTextColumn MinWidth="500" Binding="{Binding Message}" FontSize="12"/>
+					</DataGrid.Columns>
+				</DataGrid>
+			</StackPanel>
+		</DockPanel>
 		
 	</StackPanel>
 </Window>
