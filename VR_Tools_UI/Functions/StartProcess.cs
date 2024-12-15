@@ -5,7 +5,7 @@ namespace VR_Tools_UI.Functions;
 
 public static class StartProcess
 {
-    public static (string message, string type) Program(string name, string path)
+    public static LogMessage Program(string name, string path)
     {
         string message = "null";
         string type = "ERROR";
@@ -13,25 +13,23 @@ public static class StartProcess
         if (File.Exists(path) == false)
         {
             (message, type) = ($"Invalid Path: {path}", "ERROR");
-            Debug.WriteLine($"Invalid Path: {path}");
-            return (message, type);
+            return new LogMessage(message, type);
         }
 
         Process[] process = Process.GetProcessesByName(name);
         if (process.Length != 0)
         {
             (message, type) = ($"Process is already running", "ERROR");
-            Debug.WriteLine($"Process is already running");
-            return (message, type);
+            return new LogMessage(message, type);
         }
         else
         {
             Process.Start(path);
             (message, type) = ($"Started {name}", "INFO");
-            return (message, type);
+            return new LogMessage(message, type);
         }
     }
-    public static (string message, string type) Explorer(string path)
+    public static LogMessage Explorer(string path)
     {
         string message = "null";
         string type = "ERROR";
@@ -39,13 +37,11 @@ public static class StartProcess
         if (Directory.Exists(path) == false)
         {
             (message, type) = ($"Invalid Path: {path}", "ERROR");
-            Debug.WriteLine($"Invalid Path: {path}");
-            return (message, type);
+            return new LogMessage(message, type);
         }
 
         Process.Start("explorer.exe", path);
         (message, type) = ($"Opened {path}", "INFO");
-        Debug.WriteLine($"Opened {path}");
-        return (message, type);
+        return new LogMessage(message, type);
     }
 }

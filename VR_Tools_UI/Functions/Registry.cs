@@ -1,13 +1,12 @@
 ﻿#pragma warning disable CA1416 // Validate platform compatibility
 using Microsoft.Win32;
 using System;
-using System.Diagnostics;
 
 namespace VR_Tools_UI.Functions;
 
 public static class Registry
 {
-    public static (string message, string type) EditRegistry(bool disableASW)
+    public static LogMessage EditRegistry(bool disableASW)
     {
         string message = "null";
         string type = "ERROR";
@@ -15,7 +14,6 @@ public static class Registry
         if (Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is null)
         {
             (message, type) = (@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", "ERROR");
-            Debug.WriteLine(message);
         }
         else if (Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is not null)
         {
@@ -28,12 +26,10 @@ public static class Registry
                         key.SetValue(@"AswDisabled", 1, RegistryValueKind.DWord);
 
                         (message, type) = ("Registry value created", "INFO");
-                        Debug.WriteLine(message);
                     }
                     else
                     {
                         (message, type) = ("Registry value already exists", "ERROR");
-                        Debug.WriteLine(message);
                     }
                     break;
                 case false:
@@ -42,17 +38,15 @@ public static class Registry
                         key.DeleteValue("AswDisabled");
 
                         (message, type) = ("Registry value deleted", "INFO");
-                        Debug.WriteLine(message);
                     }
                     else
                     {
                         (message, type) = ("Registry value doesn't exist", "ERROR");
-                        Debug.WriteLine(message);
                     }
                     break;
             }
             key.Close();
         }
-        return (message, type);
+        return new LogMessage(message, type);
     }
 }

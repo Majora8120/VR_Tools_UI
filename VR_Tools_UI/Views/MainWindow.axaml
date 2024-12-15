@@ -7,7 +7,7 @@
         x:Class="VR_Tools_UI.Views.MainWindow"
 		Icon="\Assets\Icon.ico"
         Title="VR Tools"
-		Width="650" Height="550"
+		Width="750" Height="550"
 		CanResize="False">
 	<StackPanel TextElement.Foreground="#ffffffff">
 		<DockPanel DockPanel.Dock="Top" Background="#242323">
@@ -21,7 +21,7 @@
 		</DockPanel>
 
 		<!--Oculus | Old color #ff00ca9a-->
-		<Border Width="650" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 0" CornerRadius="0" Background="#303030">
+		<Border Width="750" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="0, 0, 0, 0" CornerRadius="0" Background="#303030">
 			<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Center" Text="Oculus"></TextBlock>
 		</Border>
 		<Border BorderBrush="White" BorderThickness="1">
@@ -46,11 +46,19 @@
 			</StackPanel>
 
 			<StackPanel Margin="5, 5, 5, 5">
+				<TextBlock Margin="5" FontSize="14" HorizontalAlignment="Center">Oculus Service</TextBlock>
+				<Button FontSize="12" Background="#525252" Name="StartService" Click="ServiceButton" HorizontalAlignment="Center">Start Service</Button>
+				<Button FontSize="12" Background="#525252" Name="StopService" Click="ServiceButton" HorizontalAlignment="Center">Stop Service</Button>
+			</StackPanel>
+
+			<StackPanel Margin="5, 5, 5, 5">
 				<TextBlock Margin="5" FontSize="14" HorizontalAlignment="Center">Other</TextBlock>
 				<Button FontSize="12" Background="#525252" Name="OpenOculus" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Link</Button>
 				<Button FontSize="12" Background="#525252" Name="OpenOculusDebug" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Debug Tool</Button>
 				<Button FontSize="12" Background="#525252" Name="OpenOculusFolder" Click="OpenProgram" HorizontalAlignment="Center">Open Oculus Folder</Button>
 			</StackPanel>
+
+			
 		</WrapPanel>
 		</Border>
 
@@ -65,7 +73,7 @@
 				AutoGenerateColumns="False" IsReadOnly="True"
 				GridLinesVisibility="All" HeadersVisibility="None"
 				BorderThickness="1" BorderBrush="Gray"
-				Height="140" RowHeight="30" Width="650">
+				Height="140" RowHeight="30" Width="750">
 					<DataGrid.Columns>
 						<DataGridTextColumn Width="65" Binding="{Binding Type}" FontSize="12"/>
 						<DataGridTextColumn MinWidth="500" Binding="{Binding Message}" FontSize="12"/>

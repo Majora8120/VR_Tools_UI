@@ -24,70 +24,68 @@ public partial class MainWindow : Window
     {
         var source = args.Source as Control;
 
-        string message, type;
+        LogMessage logMessage;
 
         switch (source!.Name)
         {
             case "OVRServer_x64":
-                (message, type) = Priority.SetPriority("OVRServer_x64", "OVRServer_x64.exe", ProcessPriorityClass.RealTime);
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Priority.SetPriority("OVRServer_x64", "OVRServer_x64.exe", ProcessPriorityClass.RealTime);
+                Log.Insert(0, logMessage);
                 break;
             case "OVRRedir":
-                (message, type) = Priority.SetPriority("OVRRedir", "OVRRedir.exe", ProcessPriorityClass.RealTime);
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Priority.SetPriority("OVRRedir", "OVRRedir.exe", ProcessPriorityClass.RealTime);
+                Log.Insert(0, logMessage);
                 break;
             case "OculusDash":
-                (message, type) = Priority.SetPriority("OculusDash", "OculusDash.exe", ProcessPriorityClass.High);
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Priority.SetPriority("OculusDash", "OculusDash.exe", ProcessPriorityClass.High);
+                Log.Insert(0, logMessage);
                 break;
             case "BS_Realtime":
-                (message, type) = Priority.SetPriority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.RealTime);
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Priority.SetPriority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.RealTime);
+                Log.Insert(0, logMessage);
                 break;
             case "BS_High":
-                (message, type) = Priority.SetPriority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.High);
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Priority.SetPriority("Beat Saber", "Beat Saber.exe", ProcessPriorityClass.High);
+                Log.Insert(0, logMessage);
                 break;
         }
     }
     public void ASWEnable(object sender, RoutedEventArgs args)
     {
-        var (message, type) = Registry.EditRegistry(false);
-        Log.Insert(0, new LogMessage(message, type));
+        LogMessage logMessage = Registry.EditRegistry(false);
+        Log.Insert(0, logMessage);
     }
     public void ASWDisable(object sender, RoutedEventArgs args)
     {
-        var (message, type) = Registry.EditRegistry(true);
-        Log.Insert(0, new LogMessage(message, type));
+        LogMessage logMessage = Registry.EditRegistry(true);
+        Log.Insert(0, logMessage);
     }
     public void OpenProgram(object sender, RoutedEventArgs args)
     {
         var source = args.Source as Control;
 
-        string message, type;
+        LogMessage logMessage;
 
         switch (source!.Name)
         {
             case "OpenOculus":
-                (message, type) = StartProcess.Program("OculusClient", @"C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe");
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = StartProcess.Program("OculusClient", @"C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe");
+                Log.Insert(0, logMessage);
                 break;
             case "OpenOculusDebug":
-                (message, type) = StartProcess.Program("OculusDebugTool", @"C:\Program Files\Oculus\Support\oculus-diagnostics\OculusDebugTool.exe");
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = StartProcess.Program("OculusDebugTool", @"C:\Program Files\Oculus\Support\oculus-diagnostics\OculusDebugTool.exe");
+                Log.Insert(0, logMessage);
                 break;
             case "OpenOculusFolder":
-                (message, type) = StartProcess.Explorer(@"C:\Program Files\Oculus\Support");
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = StartProcess.Explorer(@"C:\Program Files\Oculus\Support");
+                Log.Insert(0, logMessage);
                 break;
         }
     }
     public async void SwitchDash(object sender, RoutedEventArgs args)
     {
         var source = args.Source as Control;
-
         LogMessage logMessage;
-        string message, type;
 
         switch (source!.Name)
         {
@@ -96,8 +94,25 @@ public partial class MainWindow : Window
                 Log.Insert(0, logMessage);
                 break;
             case "DashOculus":
-                (message, type) = Dash.SwapToOculusDash();
-                Log.Insert(0, new LogMessage(message, type));
+                logMessage = Dash.SwapToOculusDash();
+                Log.Insert(0, logMessage);
+                break;
+        }
+    }
+    public void ServiceButton(object sender, RoutedEventArgs args)
+    {
+        var source = args.Source as Control;
+        LogMessage logMessage;
+
+        switch (source!.Name)
+        {
+            case "StartService":
+                logMessage = Service.StartService();
+                Log.Insert(0, logMessage);
+                break;
+            case "StopService":
+                logMessage = Service.StopService();
+                Log.Insert(0, logMessage);
                 break;
         }
     }
@@ -111,7 +126,7 @@ public partial class MainWindow : Window
                     new ButtonDefinition { Name = "Ok" }
                 },
                 ContentTitle = "About",
-                ContentMessage = $"Develped by Majora8120\nMade with Avalonia & MessageBox.Avalonia",
+                ContentMessage = $"Develped by Majora8120\n\nMade with Avalonia & MessageBox.Avalonia\nOculus Killer made by Bnuuy Solutions",
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 CanResize = false,
                 MaxWidth = 500,

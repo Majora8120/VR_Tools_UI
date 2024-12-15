@@ -1,10 +1,8 @@
-﻿#pragma warning disable CA1416 // Validate platform compatibility
-using System;
+﻿using System;
 using System.Net.Http;
 using System.IO;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using System.ServiceProcess;
 
 namespace VR_Tools_UI.Functions;
 
@@ -25,20 +23,17 @@ public static class Dash
         if (IsDashRunning() == true)
         {
             (message, type) = ("Close OculusDash and SteamVR!!!", "ERROR");
-            Debug.WriteLine(message);
             return new LogMessage(message, type);
         }
 
         if (currentDash == "SteamVR")
         {
             (message, type) = ("Oculus Killer already installed", "ERROR");
-            Debug.WriteLine(message);
             return new LogMessage(message, type);
         }
         if (currentDash == null)
         {
             (message, type) = ("GetCurrentDash returned null", "ERROR");
-            Debug.WriteLine(message);
             return new LogMessage(message, type);
         }
         File.Move(FullFilePath, DashBackup);
@@ -61,7 +56,7 @@ public static class Dash
         }
         return new LogMessage(message, type);
     }
-    public static (string message, string type) SwapToOculusDash()
+    public static LogMessage SwapToOculusDash()
     {
         string message = "null";
         string type = "ERROR";
@@ -70,26 +65,24 @@ public static class Dash
         if (IsDashRunning() == true)
         {
             (message, type) = ("Close OculusDash and SteamVR!!!", "ERROR");
-            Debug.WriteLine(message);
-            return(message, type);
+            return new LogMessage(message, type);
         }
 
         if (currentDash == "OculusDash")
         {
             (message, type) = ("Oculus Dash already installed", "ERROR");
-            Debug.WriteLine(message);
-            return(message, type);
+            return new LogMessage(message, type);
         }
         if (currentDash == null)
         {
             (message, type) = ("GetCurrentDash returned null", "ERROR");
-            return(message, type);
+            return new LogMessage(message, type);
         }
         File.Move(FullFilePath, KillerBackup);
 
         File.Move(DashBackup, FullFilePath);
         (message, type) = ("Oculus Dash restored", "INFO");
-        return(message, type);
+        return new LogMessage(message, type);
     }
     private static string? GetCurrentDash()
     {
@@ -104,25 +97,13 @@ public static class Dash
             return null;
         }
         FileInfo fileInfo = new FileInfo(FullFilePath);
-        if (fileInfo.Length < 1000000) // Oculus Killer is less than 1MB in size
+        if (fileInfo.Length < 1000000) // Oculus Killer is less than 1MB in size. Dash is ~32MB
         {
             return("SteamVR");
         }
         else
         {
             return ("OculusDash");
-        }
-    }
-    private static bool IsServiceStopped()
-    {
-        ServiceController sc = new ServiceController("OVRService");
-        if (sc.Status == ServiceControllerStatus.Stopped)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
     private static bool IsDashRunning()
