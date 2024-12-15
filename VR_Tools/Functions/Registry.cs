@@ -1,22 +1,19 @@
 ﻿#pragma warning disable CA1416 // Validate platform compatibility
-using Avalonia.Media;
 using Microsoft.Win32;
 using System;
-using System.Diagnostics;
 
-namespace VR_Tools_UI.Scripts;
+namespace VR_Tools.Functions;
 
 public static class Registry
 {
-    public static (string message, Avalonia.Media.IBrush color) EditRegistry(bool disableASW)
+    public static LogMessage EditRegistry(bool disableASW)
     {
         string message = "null";
-        Avalonia.Media.IBrush color = Brushes.Crimson;
+        string type = "ERROR";
 
         if (Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is null)
         {
-            (message, color) = (@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", Brushes.Crimson);
-            Debug.WriteLine(message);
+            (message, type) = (@"HKEY_LOCAL_MACHINE\SOFTWARE\Oculus is null. Is Oculus Link installed?", "ERROR");
         }
         else if (Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Oculus") is not null)
         {
@@ -28,13 +25,11 @@ public static class Registry
                     {
                         key.SetValue(@"AswDisabled", 1, RegistryValueKind.DWord);
 
-                        (message, color) = ("Registry value created!", Brushes.LightGreen);
-                        Debug.WriteLine(message);
+                        (message, type) = ("Registry value created", "INFO");
                     }
                     else
                     {
-                        (message, color) = ("Registry value already exists!", Brushes.Crimson);
-                        Debug.WriteLine(message);
+                        (message, type) = ("Registry value already exists", "ERROR");
                     }
                     break;
                 case false:
@@ -42,18 +37,16 @@ public static class Registry
                     {
                         key.DeleteValue("AswDisabled");
 
-                        (message, color) = ("Registry value deleted!", Brushes.LightGreen);
-                        Debug.WriteLine(message);
+                        (message, type) = ("Registry value deleted", "INFO");
                     }
                     else
                     {
-                        (message, color) = ("Registry value doesn't exist!", Brushes.Crimson);
-                        Debug.WriteLine(message);
+                        (message, type) = ("Registry value doesn't exist", "ERROR");
                     }
                     break;
             }
             key.Close();
         }
-        return (message, color);
+        return new LogMessage(message, type);
     }
 }
