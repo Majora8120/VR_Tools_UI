@@ -2,7 +2,7 @@
 using Microsoft.Win32;
 using System;
 
-namespace VR_Tools_UI.Functions;
+namespace VR_Tools.Functions;
 
 public static class Registry
 {

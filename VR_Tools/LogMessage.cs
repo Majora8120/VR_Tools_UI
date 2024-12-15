@@ -1,4 +1,4 @@
-﻿namespace VR_Tools_UI
+﻿namespace VR_Tools
 {
     public class LogMessage
     {

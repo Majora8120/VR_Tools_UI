@@ -3,14 +3,14 @@ using Avalonia.Interactivity;
 using MsBox.Avalonia;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using VR_Tools_UI.Functions;
+using VR_Tools.Functions;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Models;
 using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
 
-namespace VR_Tools_UI.Views;
+namespace VR_Tools.Views;
 
 public partial class MainWindow : Window
 {
@@ -139,7 +139,7 @@ public partial class MainWindow : Window
                     Text = "VR Tools GitHub",
                     Action = new Action(() =>
                     {
-                        var url = "https://github.com/Majora8120/VR_Tools_UI";
+                        var url = "https://github.com/Majora8120/VR_Tools";
                         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                         {
                             using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };

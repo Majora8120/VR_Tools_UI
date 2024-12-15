@@ -24,6 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VR_Tools_UI\VR_Tools_UI.csproj" />
+    <ProjectReference Include="..\VR_Tools\VR_Tools.csproj" />
   </ItemGroup>
 </Project>

@@ -2,10 +2,10 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-using VR_Tools_UI.ViewModels;
-using VR_Tools_UI.Views;
+using VR_Tools.ViewModels;
+using VR_Tools.Views;
 
-namespace VR_Tools_UI;
+namespace VR_Tools;
 
 public partial class App : Application
 {

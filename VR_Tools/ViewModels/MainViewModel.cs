@@ -1,4 +1,4 @@
-﻿namespace VR_Tools_UI.ViewModels;
+﻿namespace VR_Tools.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {

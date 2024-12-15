@@ -2,7 +2,7 @@
 using Avalonia;
 using Avalonia.ReactiveUI;
 
-namespace VR_Tools_UI.Desktop;
+namespace VR_Tools.Desktop;
 
 class Program
 {

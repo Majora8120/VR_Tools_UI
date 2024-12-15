@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 
-namespace VR_Tools_UI.Functions;
+namespace VR_Tools.Functions;
 
 public static class StartProcess
 {

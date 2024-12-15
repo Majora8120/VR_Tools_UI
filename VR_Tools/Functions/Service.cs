@@ -1,7 +1,7 @@
 ﻿#pragma warning disable CA1416 // Validate platform compatibility
 using System.ServiceProcess;
 
-namespace VR_Tools_UI.Functions;
+namespace VR_Tools.Functions;
 
 public static class Service
 {
