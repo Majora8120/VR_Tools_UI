@@ -15,7 +15,7 @@ public static class Service
         if (sc.Status == ServiceControllerStatus.Stopped | sc.Status == ServiceControllerStatus.StopPending)
         {
             sc.Start();
-            (message, type) = ("Service Starting", "INFO");
+            (message, type) = ("Service Started", "INFO");
             return new LogMessage(message, type);
         }
         else if (sc.Status == ServiceControllerStatus.StartPending | sc.Status == ServiceControllerStatus.Running)
@@ -34,7 +34,7 @@ public static class Service
         if (sc.Status == ServiceControllerStatus.Running | sc.Status == ServiceControllerStatus.StartPending)
         {
             sc.Stop();
-            (message, type) = ("Service Stopping", "INFO");
+            (message, type) = ("Service Stopped", "INFO");
             return new LogMessage(message, type);
         }
         else if (sc.Status == ServiceControllerStatus.Stopped | sc.Status == ServiceControllerStatus.StopPending)

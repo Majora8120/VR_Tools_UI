@@ -116,40 +116,9 @@ public partial class MainWindow : Window
                 break;
         }
     }
-    public async void AboutWindow(object source, RoutedEventArgs args)
+    public void AboutWindow(object source, RoutedEventArgs args)
     {
-        var box = MessageBoxManager.GetMessageBoxCustom(
-            new MessageBoxCustomParams
-            {
-                ButtonDefinitions = new List<ButtonDefinition>
-                {
-                    new ButtonDefinition { Name = "Ok" }
-                },
-                ContentTitle = "About",
-                ContentMessage = $"Develped by Majora8120\n\nMade with Avalonia & MessageBox.Avalonia\nOculus Killer made by Bnuuy Solutions",
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                CanResize = false,
-                MaxWidth = 500,
-                MaxHeight = 800,
-                SizeToContent = SizeToContent.WidthAndHeight,
-                ShowInCenter = true,
-                Topmost = false,
-                HyperLinkParams = new HyperLinkParams
-                {
-                    Text = "VR Tools GitHub",
-                    Action = new Action(() =>
-                    {
-                        var url = "https://github.com/Majora8120/VR_Tools";
-                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                        {
-                            using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
-                            proc.Start();
-
-                            return;
-                        }
-                    })
-                }
-            });
-        await box.ShowAsync();
+        var window = new AboutWindow();
+        window.Show();
     }
 }

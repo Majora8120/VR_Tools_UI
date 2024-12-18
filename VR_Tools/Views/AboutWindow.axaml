@@ -1,0 +1,19 @@
+<!--This shit won't preview for some stupid reason. It works fine-->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="VR_Tools.Views.AboutWindow"
+        Title="About"
+		SizeToContent="3"
+		CanResize="False">
+	<StackPanel Margin="25" TextElement.Foreground="#ffffffff">
+		<TextBlock Margin="1" FontSize="14">Develeped by Majora8120</TextBlock>
+		<TextBlock/>
+		<TextBlock Margin="1" FontSize="14">Made with Avalonia &amp; MessageBox.Avalonia</TextBlock>
+		<TextBlock Margin="1" FontSize="14">Oculus Killer made by Bnuuy Solutions</TextBlock>
+		<HyperlinkButton Margin="-5, 10, 0, 0" FontSize="14" NavigateUri="https://github.com/Majora8120/VR_Tools">VR Tools Github</HyperlinkButton>
+		<HyperlinkButton Margin="-5, 0, 0, 0" FontSize="14" NavigateUri="https://github.com/BnuuySolutions/OculusKiller">Oculus Killer Github</HyperlinkButton>
+		<Button Margin="0, 10, 0, 0" Click="CloseWindow">Close</Button>
+	</StackPanel>
+</Window>
