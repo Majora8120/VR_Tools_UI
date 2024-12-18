@@ -22,7 +22,7 @@ public static class Dash
 
         if (IsDashRunning() == true)
         {
-            (message, type) = ("Close OculusDash and SteamVR!!!", "ERROR");
+            (message, type) = ("Close Oculus Dash and SteamVR!!!", "ERROR");
             return new LogMessage(message, type);
         }
 

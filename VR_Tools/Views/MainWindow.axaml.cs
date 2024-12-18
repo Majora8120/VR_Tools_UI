@@ -1,14 +1,8 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using MsBox.Avalonia;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using VR_Tools.Functions;
-using MsBox.Avalonia.Dto;
-using MsBox.Avalonia.Models;
-using System.Collections.Generic;
-using System;
-using System.Runtime.InteropServices;
 
 namespace VR_Tools.Views;
 

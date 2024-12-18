@@ -25,7 +25,7 @@ public static class StartProcess
         else
         {
             Process.Start(path);
-            (message, type) = ($"Started {name}", "INFO");
+            (message, type) = ($"Opened {name}", "INFO");
             return new LogMessage(message, type);
         }
     }
