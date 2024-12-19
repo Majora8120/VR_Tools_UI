@@ -113,6 +113,6 @@ public partial class MainWindow : Window
     public void AboutWindow(object source, RoutedEventArgs args)
     {
         var window = new AboutWindow();
-        window.Show();
+        window.ShowDialog(this);
     }
 }

@@ -7,6 +7,7 @@
         x:Class="VR_Tools.Views.MainWindow"
 		Icon="\Assets\Icon.ico"
         Title="VR Tools"
+		SizeToContent="3"
 		Width="750" Height="550"
 		CanResize="False">
 	<StackPanel TextElement.Foreground="#ffffffff">
@@ -75,7 +76,7 @@
 		</Border>
 		
 		<!--Log-->
-		<DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Margin="0, 60, 0, 0">
+		<DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Margin="0, 70, 0, 0">
 			<StackPanel>
 				<Border Width="" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0" CornerRadius="0" Background="DarkKhaki">
 					<TextBlock Margin="5" FontSize="16" HorizontalAlignment="Left" Text="Log"></TextBlock>
