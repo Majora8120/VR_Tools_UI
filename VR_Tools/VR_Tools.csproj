@@ -8,9 +8,6 @@
 	<DebugSymbols>False</DebugSymbols>
 	<DebugType>None</DebugType>
   </PropertyGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.2" />
